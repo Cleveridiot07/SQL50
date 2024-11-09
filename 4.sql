@@ -1,3 +1,3 @@
-
-SELECT class FROM Courses
-GROUP BY class HAVING COUNT(student)>=5;
+SELECT DISTINCT author_id as ID FROM Views
+WHERE author_id = viewer_id
+ORDER BY ID;
