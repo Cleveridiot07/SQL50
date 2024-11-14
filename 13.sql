@@ -12,3 +12,12 @@ JOIN
 ) AS subquery
 -- Join the main Employee table with the subquery on matching manager IDs
 ON Employee.id = subquery.managerId;
+
+
+-- Optimal Approach
+SELECT Employee.name
+FROM Employee
+JOIN Employee AS subquery
+ON Employee.id = subquery.managerId
+GROUP BY Employee.id, Employee.name
+HAVING COUNT(subquery.id) >= 5;
